@@ -12,13 +12,6 @@ from cypher_nums_340 import cypher_340
 look_up ={0: 'i', 1: 'l', 2: 'i', 3: 'k', 4: 'i', 5: 'i', 6: 'l', 7: 'i', 8: 'n', 9: 'g', 10: 'x', 11: 'n', 12: 'h', 13: 'n', 14: 'i', 15: 'e', 16: 't', 17: 'v', 18: 'e', 19: 't', 20: 'h', 21: 's', 22: 's', 23: 't', 24: 'h', 25: 'e', 26: 'a', 27: 's', 28: 'c', 29: 't', 30: 'h', 31: 'm', 32: 'e', 33: 'r', 34: 'x', 35: 'n', 36: 'h', 37: 'e', 38: 'a', 39: 't', 40: 'w', 41: 't', 42: 'w', 43: 'h', 44: 'n', 45: 'i', 46: 'i', 47: 'w', 48: 'u', 49: 'n', 50: 'w', 51: 'l', 52: 'a'}
 class G_A():
 
-	# TODO !!!
-	# Looking at local optima and seeing if you can get out of it.
-	# REPORT writing.
-	# Looking at the avergare as well as the highest, local opitma rather than actually optima.
-	# Set up a load of experiments (maybe even the worst).
-	# Do it as some graphs :) 
-
 	# The basic set up for the G_A, this can be changed in the settings at the beginning 
 	# of a run through. 
 
@@ -72,7 +65,7 @@ class G_A():
 
 	def create_random_population(self, chromosomes_needed, unique_cypher_symbols):
 
-		# Used in the firs run through of the G_A to create a random population.
+		# Used in the first run through of the G_A to create a random population.
 
 		chromosome_population = []
 		symbol_mapping = {}
@@ -93,7 +86,7 @@ class G_A():
 
 	def get_parents(self, size):
 
-		# Selects n parents at random and uses a tournement to decide on the best one, picking the one with the highest fitness.
+		# Selects a parents at random and uses a tournament to decide on the best one, picking the one with the highest fitness.
 
 		potential_parents = []
 		for x in range(0,size):
@@ -137,9 +130,6 @@ class G_A():
 
 	def apply_mulitpoint_crossover(self, parent1, parent2):
 
-		# need the number of points to cross over
-		# need to get the points at which it would cross over
-
 		# Applies mulitpoint crossover using two previous selected parents, with n amount of cross overs.
 		# Noting that it is possible for a crossover point to be the same as another, meaning that a reduced
 		# number of cross over point can be used when creating offspring (giving more randomness).
@@ -173,7 +163,7 @@ class G_A():
 
 		crossover_mapping = []
 
-		crossover_mapping.append(0)						# Gives a line at the start.
+		crossover_mapping.append(0)			# Gives a line at the start.
 		crossover_mapping.append(self.unique_symbols) 	# Gives a line at the end.
 		for x in range(0,self.crossover_points):
 			crossover_mapping.append(random.randrange(0,self.unique_symbols))
@@ -242,21 +232,7 @@ class G_A():
 		#print(self.mutation_rate)
 
 		if self.current_age == 1:
-
-#				print('The look up: \n')
-#				self.lookup.create_representation(self.cypher)
-#				self.fitness_function(2,5,self.lookup)
-#				self.lookup.display()
-#				print('\n')
-#				input()
-
-
-#				self.answer.create_representation(self.cypher)
-#				self.fitness_function(2,5,self.answer)
-#				self.answer.display()
-#				input()
-
-				self.current_population = self.create_random_population(self.population_size, self.unique_symbols)
+			self.current_population = self.create_random_population(self.population_size, self.unique_symbols)
 
 		for chromosome in self.current_population:
 			self.fitness_function(2,5,chromosome)
@@ -421,15 +397,6 @@ def main(number_of_epochs, pop_size):
 	# The main function, runs the entire of the program, ToDo: add better UI so that different
 	# options may be picked without changing the source code.
 
-	# What choices could you have ??
-	# - Cypher
-	# - Pop
-	# - Epochs
-	# - Number of re-runs
-	# - mutation
-	# - Cross-over
-	# - Cross-over points.
-	# - Default option ??
 	try:
 		x = int(input("Which Cypher would you like you to use, 408 or 340 (enter number):"))
 		if x == 340:
