@@ -1,6 +1,6 @@
 Read Me:
 
-This is the readme file for undergrad-diss.
+The following project has be created in the Python3 programming language.
 
 In order to run the GA simply run GA.py (or 'GA - final experiment.py'), simply run it, it will then ask for
 some simple inputs from the user before running the GA. If an incorrect value is enter the defualt value will be used.  
